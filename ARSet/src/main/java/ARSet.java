@@ -85,6 +85,21 @@ public class ARSet implements Iterable<Integer>{
         return newset;
     }
 
+    /**
+     * Checks whether the supplied set is a subset of the set upon which it is called. Returns true if it is, false if it is not.
+     * @param set is the set that is supplied.
+     * @return boolean true if it is a subset of the set it is called upon, else false.
+     */
+    public boolean isSubset(ARSet set) {
+        Iterator<Integer> iterator = set.iterator();
+        while(iterator.hasNext()) {
+            if(!elems.contains(iterator.next())) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /* Boiler-plate stuff to be able to iterate over the set. Not of interest to students. */
 
     @Override

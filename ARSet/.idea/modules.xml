@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ARSet.iml" filepath="$PROJECT_DIR$/ARSet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ARSet.iml" filepath="$PROJECT_DIR$/.idea/modules/ARSet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ARSet_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ARSet_main.iml" group="ARSet" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ARSet_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ARSet_test.iml" group="ARSet" />
     </modules>
   </component>
 </project>

@@ -1,33 +1,36 @@
 /**
- * Created by aleksandarbabunovic on 2017-01-13.
+ * Created by aleksandarbabunovic on 2017-01-14.
  */
-import org.junit.Before;
-import org.junit.Assert;
-import org.junit.After;
 import org.junit.Test;
+import org.junit.Before;
+
+import static org.junit.Assert.*;
 
 public class AddTest {
-
-    private ARSet testSet;
+    private ARSet set;
 
     @Before
     public void init(){
-        testSet = new ARSet();
-        testSet.add(1);
-        testSet.add(2);
-        testSet.add(3);
+        set = new ARSet();
     }
 
     @Test
-    public void addSucceedTest(){
-        testSet.add(4);
-        Assert.assertArrayEquals(testSet.toArray(),new int[]{1,2,3,4});
+    public void addTest(){
+        set.add(1);
+        assertArrayEquals(new int[]{1}, set.toArray());
     }
 
     @Test
-    public void addFailTest(){
-        testSet.add(3);
-        Assert.assertArrayEquals(testSet.toArray(),new int[]{1,2,3});
+    public void addArrayTest(){
+        Integer elems[] = new Integer[]{1,2,3,4,5};
+        set.add(elems);
+        assertArrayEquals(new int[]{1,2,3,4,5}, set.toArray());
     }
 
+    @Test
+    public void addSameElements(){
+        Integer elems[] = new Integer[]{1,1,1,1,1};
+        set.add(elems);
+        assertArrayEquals(new int[]{1}, set.toArray());
+    }
 }

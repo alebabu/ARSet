@@ -6,9 +6,10 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         AddTest.class,
-        HeadTest.class,
-        RemoveTest.class,
-        TailTest.class
+        DeleteTest.class,
+        IntersectionTest.class,
+        IsSubsetTest.class,
+        UnionTest.class
 })
 public class ARSetTestSuite {
 }

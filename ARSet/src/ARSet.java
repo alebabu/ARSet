@@ -5,7 +5,6 @@
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-import java.util.function.Consumer;
 
 /**
  * A set of Integers that does not allow duplicates.
@@ -13,7 +12,16 @@ import java.util.function.Consumer;
 public class ARSet implements Iterable<Integer>{
 
     public static void main(String[] args) {
+        ARSet set1 = new ARSet();
+        set1.add(1);
+        set1.add(5);
 
+        ARSet set2 = new ARSet();
+        set2.add(1);
+        set2.add(5);
+        set2.add(3);
+
+        System.out.println(set1.equals(set2));
     }
 
     /**
@@ -110,6 +118,47 @@ public class ARSet implements Iterable<Integer>{
             }
         }
         return true;
+    }
+
+    /**
+     * Returns how many elements are in the set.
+     * @return an integer representing how many elements are present in this set. Set is left unaltered.
+     */
+    public int size() {
+        return elems.size();
+    }
+
+    /**
+     * A method that checks if a given Integer is a member in the set it is called upon.
+     * @param i is the element that is to be checked for membership.
+     * @return True if i is present in the set, else false.
+     */
+    public boolean contains(Integer i) {
+        return elems.contains(i);
+    }
+
+    /**
+     * If the sizes of the sets are different, return false.
+     * Else, loop over all elements in one set, and make sure that they are present in the other set. Leaves both sets unaltered.
+     * @param o is the other set. The elements are retrieved from this set, and then made sure that they are present in the set it is called upon.
+     * @return true if the set are equals, else false.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if(o == null) {
+            return false;
+        }
+        ARSet set = (ARSet) o;
+        if(set.size() == this.size()) {
+            Iterator<Integer> ite = set.iterator();
+            while(ite.hasNext()) {
+                if(!elems.contains(ite.next())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     /* Boiler-plate stuff to be able to iterate over the set. Not of interest to students. */

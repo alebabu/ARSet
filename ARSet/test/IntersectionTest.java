@@ -36,6 +36,8 @@ public class IntersectionTest {
     @Test
     public void intersectionTest3(){
         ARSet newSet = set0.intersection(set2);
-        assertArrayEquals(new int[]{1,4}, newSet.toArray());
+        ARSet expected = new ARSet();
+        expected.add(new Integer[]{1,4});
+        assertEquals(newSet.equals(expected), true);
     }
 }

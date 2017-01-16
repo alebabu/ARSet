@@ -10,20 +10,6 @@ import java.util.NoSuchElementException;
  * A set of Integers that does not allow duplicates.
  */
 public class ARSet implements Iterable<Integer>{
-
-    public static void main(String[] args) {
-        ARSet set1 = new ARSet();
-        set1.add(1);
-        set1.add(5);
-
-        ARSet set2 = new ARSet();
-        set2.add(1);
-        set2.add(5);
-        set2.add(3);
-
-        System.out.println(set1.equals(set2));
-    }
-
     /**
      * Implementation is done through delegation.
      */
@@ -168,6 +154,10 @@ public class ARSet implements Iterable<Integer>{
         return new ARSetIterator(this);
     }
 
+    /**
+     * Creates a new array of int with all the Integers in the set.
+     * @return the new array of int
+     */
     public int[] toArray(){
         int res[] = new int[elems.size()];
         int i = 0;

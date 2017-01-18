@@ -39,7 +39,7 @@ public class ARSet implements Iterable<Integer>{
      */
     public void add(Integer[] elems) {
         for (Integer i : elems) {
-            add(i);
+            this.elems.add(i);
         }
     }
 
@@ -60,10 +60,11 @@ public class ARSet implements Iterable<Integer>{
     public ARSet union(ARSet set) {
         ARSet newset = new ARSet();
         Iterator<Integer> iterator = set.iterator();
+        Integer i = iterator.next();
         while(iterator.hasNext()) {
-            Integer i = iterator.next();
             if(!elems.contains(i)) {
                 newset.add(i);
+                iterator.next();
             }
         }
         iterator = this.iterator();
@@ -85,7 +86,7 @@ public class ARSet implements Iterable<Integer>{
         while(iterator.hasNext()) {
             Integer i = iterator.next();
             if(elems.contains(i)) {
-                newset.add(i);
+                newset.elems.add(i);
             }
         }
         return newset;
@@ -99,11 +100,11 @@ public class ARSet implements Iterable<Integer>{
     public boolean isSubset(ARSet set) {
         Iterator<Integer> iterator = set.iterator();
         while(iterator.hasNext()) {
-            if(!elems.contains(iterator.next())) {
-                return false;
+            if(elems.contains(iterator.next())) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     /**
@@ -148,6 +149,7 @@ public class ARSet implements Iterable<Integer>{
     }
 
     /* Boiler-plate stuff to be able to iterate over the set. Not of interest to students. */
+    /* DON'T TOUCH THIS!*/
 
     @Override
     public Iterator<Integer> iterator() {
